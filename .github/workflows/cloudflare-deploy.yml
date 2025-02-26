@@ -1,0 +1,57 @@
+name: Cloudflare Deploy
+on:
+  push:
+    branches: production
+jobs:
+  deploy:
+    name: Deploy to Cloudflare Pages
+    permissions:
+      contents: read
+      deployments: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Build
+      run: npm install && npm run build
+    - name: Create GitHub Deployment
+      id: create_deployment
+      uses: actions/github-script@v6
+      with:
+        script: "\n                                    const deployment = await github.rest.repos.createDeployment({\n\
+          \                                        owner: context.repo.owner,\n  \
+          \                                      repo: context.repo.repo,\n      \
+          \                                  ref: context.ref,\n                 \
+          \                       required_contexts: [],\n                       \
+          \             });\n                                    return deployment.data.id;\n\
+          \                                    "
+    - name: Publish
+      uses: cloudflare/wrangler-action@v3
+      id: deployment
+      with:
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        gitHubToken: ${{ secrets.ACCESS_TOKEN }}
+        command: pages deploy build --project-name=easyship
+    - name: Update Deployment status to success
+      if: success()
+      uses: actions/github-script@v6
+      with:
+        script: "\n                                    await github.rest.repos.createDeploymentStatus({\n\
+          \                                        owner: context.repo.owner,\n  \
+          \                                      repo: context.repo.repo,\n      \
+          \                                  deployment_id: \"${{ steps.create_deployment.outputs.result
+          }}\",\n                                        state: \"success\",\n   \
+          \                                 });\n                                \
+          \    "
+    - name: Update Deployment status to failure
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: "\n                                    await github.rest.repos.createDeploymentStatus({\n\
+          \                                        owner: context.repo.owner,\n  \
+          \                                      repo: context.repo.repo,\n      \
+          \                                  deployment_id: \"${{ steps.create_deployment.outputs.result
+          }}\",\n                                        state: \"failure\",\n   \
+          \                                 });\n                                \
+          \    "
