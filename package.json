@@ -40,6 +40,8 @@
   "type": "module",
   "dependencies": {
     "@floating-ui/dom": "1.6.13",
-    "@sveltejs/adapter-static": "^3.0.8"
+    "@iconify/json": "^2.2.310",
+    "@sveltejs/adapter-static": "^3.0.8",
+    "unplugin-icons": "^22.1.0"
   }
 }
