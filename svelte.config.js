@@ -14,7 +14,7 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
     	adapter: adapter({ pages: 'build', assets: 'build', fallback: undefined, precompress: false, strict: true }),
 		prerender: {
-			entries: ['/', '/about', '/careers', '/contact', '/careers/ux-designer', '/careers/software-engineer', '/careers/product-manager', '/careers/sales-representative'],
+			entries: ['/', '/about', '/careers', '/career', '/contact'],
 
 		}
 	}
