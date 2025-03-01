@@ -63,7 +63,7 @@
         
                     <!-- Apply Button -->
                     <div class="flex justify-end mt-auto">
-                        <a href="/careers/{job.title.toLowerCase().replace(' ', '-')}">
+                        <a href="/career?q={job.title.toLowerCase().replace(' ', '-')}">
                             <button class="btn variant-filled rounded">Apply Now</button>
                         </a>
                     </div>

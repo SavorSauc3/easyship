@@ -1,8 +1,10 @@
 <script lang="ts">
     import { Navbar, Footer } from '$lib';
+    import { page } from '$app/state'; // Correct import for the `page` store
 
-    // Extract the `slug` parameter
-    export let slug: string = '';
+    // Extract the `q` query parameter
+    export let title: string = '';
+    $: title = new URLSearchParams(page.url.search).get('q') || ''; // Dynamically update `title` when the query changes
 
     // Variables to store form input values
     let firstName: string = '';
@@ -36,7 +38,7 @@
 
     <!-- Website Content -->
     <div class="container mx-auto p-4 text-center">
-        <h1 class="text-4xl font-bold mb-4">Application Form for {slug}</h1>
+        <h1 class="text-4xl font-bold mb-4">Application Form for {title}</h1>
         <p class="text-gray-500 mb-8">Please fill out the application form below.</p>
     </div>
 
