@@ -7,3 +7,7 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+// global.d.ts
+interface Window {
+    dataLayer: any[];
+  }
