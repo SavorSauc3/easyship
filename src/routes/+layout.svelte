@@ -8,8 +8,5 @@
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
-<!-- Include the GoogleAnalytics component -->
-<GoogleAnalytics id="G-R1G27RBPKP" />
-
 <!-- Render the rest of the page content -->
 <slot />
