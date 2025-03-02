@@ -9,7 +9,7 @@
 </script>
 
 <!-- Include the GoogleAnalytics component -->
-<GoogleAnalytics />
+<GoogleAnalytics id="G-R1G27RBPKP" />
 
 <!-- Render the rest of the page content -->
 <slot />
