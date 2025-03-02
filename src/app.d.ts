@@ -8,6 +8,9 @@ declare namespace App {
 	// interface Platform {}
 }
 // global.d.ts
-interface Window {
-    dataLayer: any[];
-  }
+declare interface Window {
+	dataLayer: IArguments[];
+	
+	/* eslint-disable @typescript-eslint/no-explicit-any */
+	gtag?: (...args: any[]) => void;
+}
