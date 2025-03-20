@@ -26,7 +26,7 @@
         </p>
         <div class="container mx-auto p-4">
             <div class="flex justify-between items-center">
-                <!-- Left Half: Avatar -->
+                <!-- Left Half: Cargo Ship Image -->
                 <div class="w-1/2 flex items-center">
                     <img src={ship4} alt="John Doe" class="w-[370px] h-[350px] rounded-full" />
                 </div>
@@ -36,7 +36,6 @@
                     <ul class="list-none space-y-4 text-xl">
                         <li class="flex items-center">
                             <span class="mr-2 text-blue-500">
-                                <!-- Replace with an icon if needed -->
                                 <WindIcon />
                             </span>
                             <strong>Throughput:</strong> EasyShip has transported over 50 million tons of cargo worldwide.

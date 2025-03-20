@@ -79,7 +79,7 @@
 
 <style>
     .job-list {
-        max-height: 60vh; /* Adjust the height as needed */
+        max-height: 60vh;
         overflow-y: auto; /* Adds a vertical scrollbar if content overflows */
     }
 </style>

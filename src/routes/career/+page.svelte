@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Navbar, Footer } from '$lib';
-    import { page } from '$app/state'; // Correct import for the `page` store
+    import { page } from '$app/state';
 
     // Extract the `q` query parameter
     export let title: string = '';

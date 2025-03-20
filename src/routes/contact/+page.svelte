@@ -14,7 +14,6 @@
     <Navbar />
 
     <!-- Website Content -->
-    <!-- Center aligned with a phone number, email, and physical address | Include a signup form to the newsletter at the bottom -->
     <div class="container mx-auto p-4 text-center">
         <h1 class="text-4xl font-bold mb-4">Contact Us</h1>
         <p class="text-gray-500 mb-8">Have questions or inquiries? Reach out to us!</p>
